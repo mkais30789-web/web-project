@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)http://tauri.localhost/Qzpc/session/ses_24e6f86b7ffeEVSHf3nZg0HB1o -->
+<html lang="en" style="background-color: var(--background-base); --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, &quot;Courier New&quot;, monospace; --font-family-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif; --dialog-left-margin: 48px;" data-theme="oc-2" data-color-scheme="dark"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OpenCode</title>
+    <link rel="icon" type="image/png" href="http://tauri.localhost/favicon-96x96-v3.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="http://tauri.localhost/favicon-v3.svg">
+    <link rel="shortcut icon" href="http://tauri.localhost/favicon-v3.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="http://tauri.localhost/apple-touch-icon-v3.png">
+    <link rel="manifest" href="http://tauri.localhost/site.webmanifest">
+    <meta name="theme-color" content="#F8F7F7">
+    <meta name="theme-color" content="#131010" media="(prefers-color-scheme: dark)">
+    <meta property="og:image" content="/social-share.png">
+    <meta property="twitter:image" content="/social-share.png">
+    <script id="oc-theme-preload-script">;(function () {
+  var key = "opencode-theme-id"
+  var themeId = localStorage.getItem(key) || "oc-2"
+
+  if (themeId === "oc-1") {
+    themeId = "oc-2"
+    localStorage.setItem(key, themeId)
+    localStorage.removeItem("opencode-theme-css-light")
+    localStorage.removeItem("opencode-theme-css-dark")
+  }
+
+  var scheme = localStorage.getItem("opencode-color-scheme") || "system"
+  var isDark = scheme === "dark" || (scheme === "system" && matchMedia("(prefers-color-scheme: dark)").matches)
+  var mode = isDark ? "dark" : "light"
+
+  document.documentElement.dataset.theme = themeId
+  document.documentElement.dataset.colorScheme = mode
+
+  if (themeId === "oc-2") return
+
+  var css = localStorage.getItem("opencode-theme-css-" + mode)
+  if (css) {
+    var style = document.createElement("style")
+    style.id = "oc-theme-preload"
+    style.textContent =
+      ":root{color-scheme:" +
+      mode +
+      ";--text-mix-blend-mode:" +
+      (isDark ? "plus-lighter" : "multiply") +
+      ";" +
+      css +
+      "}"
+    document.head.appendChild(style)
+  }
+})()
+</script>
+    <script type="module" crossorigin="" src="http://tauri.localhost/assets/index-31WNsIV6.js"></script>
+  <link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/index-CILPcn5C.js"><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/index-BSaHXp2J.js"><link rel="stylesheet" crossorigin="" href="http://tauri.localhost/assets/index-TNff3-Zo.css"><style id="oc-theme">:root {
+  color-scheme: dark;
+  --text-mix-blend-mode: plus-lighter;
+  --background-base: #121212;
+  --background-weak: #191919;
+  --background-strong: #121212;
+  --background-stronger: #151515;
+  --surface-base: #1C1C1C;
+  --base: #202020;
+  --surface-base-hover: #FFFFFF0D;
+  --surface-base-active: #282727;
+  --surface-base-interactive-active: rgba(1, 9, 49, 0.3);
+  --base2: #202020;
+  --base3: #202020;
+  --surface-inset-base: #202020;
+  --surface-inset-base-hover: #282727;
+  --surface-inset-strong: rgba(18, 18, 18, 0.5);
+  --surface-inset-strong-hover: rgba(18, 18, 18, 0.5);
+  --surface-raised-base: #232323;
+  --surface-float-base: #151515;
+  --surface-float-base-hover: #191919;
+  --surface-raised-base-hover: #282828;
+  --surface-raised-base-active: #282727;
+  --surface-raised-strong: #313030;
+  --surface-raised-strong-hover: #494847;
+  --surface-raised-stronger: #494847;
+  --surface-raised-stronger-hover: #5b5958;
+  --surface-weak: #282727;
+  --surface-weaker: #313030;
+  --surface-strong: #5b5958;
+  --surface-raised-stronger-non-alpha: #191919;
+  --surface-brand-base: #e27618;
+  --surface-brand-hover: #f88524;
+  --surface-interactive-base: #022fa6;
+  --surface-interactive-hover: #0643da;
+  --surface-interactive-weak: #0D172B;
+  --surface-interactive-weak-hover: #022fa6;
+  --surface-success-base: #022B00;
+  --surface-success-weak: #083a05;
+  --surface-success-strong: #25ff18;
+  --surface-warning-base: #4e410b;
+  --surface-warning-weak: #382e05;
+  --surface-warning-strong: #ffe179;
+  --surface-critical-base: #1F0603;
+  --surface-critical-weak: #5a0c03;
+  --surface-critical-strong: #fec3b8;
+  --surface-info-base: #651b6c;
+  --surface-info-weak: #4d0853;
+  --surface-info-strong: #fabbff;
+  --surface-diff-unchanged-base: #121212;
+  --surface-diff-skip-base: #1a1a1a;
+  --surface-diff-hidden-base: #181d2a;
+  --surface-diff-hidden-weak: #151820;
+  --surface-diff-hidden-weaker: #192131;
+  --surface-diff-hidden-strong: #1c273e;
+  --surface-diff-hidden-stronger: #23345a;
+  --surface-diff-add-base: #001401;
+  --surface-diff-add-weak: #011d02;
+  --surface-diff-add-weaker: #001401;
+  --surface-diff-add-strong: #012902;
+  --surface-diff-add-stronger: #c4ffc0;
+  --surface-diff-delete-base: #240200;
+  --surface-diff-delete-weak: #310401;
+  --surface-diff-delete-weaker: #240200;
+  --surface-diff-delete-strong: #430501;
+  --surface-diff-delete-stronger: #fec3b8;
+  --input-base: #151515;
+  --input-hover: #191919;
+  --input-active: #022fa6;
+  --input-selected: #0643da;
+  --input-focus: #022fa6;
+  --input-disabled: #1d1d1d;
+  --text-base: #A0A0A0;
+  --text-weak: #707070;
+  --text-weaker: #505050;
+  --text-strong: #EDEDED;
+  --text-invert-base: #c9c6c2;
+  --text-invert-weak: #6e6c6a;
+  --text-invert-weaker: #4d4d4b;
+  --text-invert-strong: #ede8e4;
+  --text-interactive-base: #c0d4fb;
+  --text-on-brand-base: #000000;
+  --text-on-interactive-base: #ffffff;
+  --text-on-interactive-weak: #ffffff;
+  --text-on-success-base: #ffffff;
+  --text-on-critical-base: #ffffff;
+  --text-on-critical-weak: #ffffff;
+  --text-on-critical-strong: #000000;
+  --text-on-warning-base: #ffffff;
+  --text-on-info-base: #ffffff;
+  --text-diff-add-base: #c4ffc0;
+  --text-diff-delete-base: #ec2f14;
+  --text-diff-delete-strong: #fafafa;
+  --text-diff-add-strong: #176d18;
+  --text-on-info-weak: #ffffff;
+  --text-on-info-strong: #000000;
+  --text-on-warning-weak: #ffffff;
+  --text-on-warning-strong: #000000;
+  --text-on-success-weak: #ffffff;
+  --text-on-success-strong: #000000;
+  --text-on-brand-weak: #000000;
+  --text-on-brand-weaker: #000000;
+  --text-on-brand-strong: #000000;
+  --button-primary-base: #ede8e4;
+  --button-secondary-base: #191919;
+  --button-secondary-hover: #1d1d1d;
+  --button-ghost-hover: #202020;
+  --button-ghost-hover2: #282727;
+  --border-base: #4d4c4a;
+  --border-hover: #565453;
+  --border-active: #5f5d5c;
+  --border-selected: rgba(20, 86, 247, 0.9);
+  --border-disabled: #444342;
+  --border-focus: #5f5d5c;
+  --border-weak-base: #282828;
+  --border-strong-base: #5f5d5c;
+  --border-strong-hover: #686664;
+  --border-strong-active: #716e6d;
+  --border-strong-selected: rgba(0, 32, 125, 0.6);
+  --border-strong-disabled: #3f3e3e;
+  --border-strong-focus: #716e6d;
+  --border-weak-hover: #444342;
+  --border-weak-active: #4d4c4a;
+  --border-weak-selected: rgba(2, 24, 88, 0.6);
+  --border-weak-disabled: #373635;
+  --border-weak-focus: #4d4c4a;
+  --border-weaker-base: #232323;
+  --border-interactive-base: #022fa6;
+  --border-interactive-hover: #0643da;
+  --border-interactive-active: #1456f7;
+  --border-interactive-selected: #1456f7;
+  --border-interactive-disabled: #4d4d4b;
+  --border-interactive-focus: #1456f7;
+  --border-success-base: #10500d;
+  --border-success-hover: #096e05;
+  --border-success-selected: #089b00;
+  --border-warning-base: #4e410b;
+  --border-warning-hover: #6c5903;
+  --border-warning-selected: #bc9d1e;
+  --border-critical-base: #7a1608;
+  --border-critical-hover: #a22413;
+  --border-critical-selected: #cb321c;
+  --border-info-base: #651b6c;
+  --border-info-hover: #83328b;
+  --border-info-selected: #cd73d5;
+  --border-color: #ffffff;
+  --icon-base: #7E7E7E;
+  --icon-hover: #c9c6c2;
+  --icon-active: #ede8e4;
+  --icon-selected: #ede8e4;
+  --icon-disabled: #393938;
+  --icon-focus: #ede8e4;
+  --icon-invert-base: #121212;
+  --icon-weak-base: #343434;
+  --icon-weak-hover: #ede8e4;
+  --icon-weak-active: #6e6c6a;
+  --icon-weak-selected: #6e6c6a;
+  --icon-weak-disabled: #1d1d1d;
+  --icon-weak-focus: #6e6c6a;
+  --icon-strong-base: #ede8e4;
+  --icon-strong-hover: #f6f3f3;
+  --icon-strong-active: #fcfcfc;
+  --icon-strong-selected: #fdfcfc;
+  --icon-strong-disabled: #4d4d4b;
+  --icon-strong-focus: #fdfcfc;
+  --icon-brand-base: #ffffff;
+  --icon-interactive-base: #1456f7;
+  --icon-success-base: #089b00;
+  --icon-success-hover: #18ab10;
+  --icon-success-active: #25ff18;
+  --icon-warning-base: #c78b05;
+  --icon-warning-hover: #db9b18;
+  --icon-warning-active: #ffca76;
+  --icon-critical-base: #cb321c;
+  --icon-critical-hover: #ec2f14;
+  --icon-critical-active: #fec3b8;
+  --icon-info-base: #cd73d5;
+  --icon-info-hover: #e282ea;
+  --icon-info-active: #fabbff;
+  --icon-on-brand-base: #000000;
+  --icon-on-brand-hover: #000000;
+  --icon-on-brand-selected: #000000;
+  --icon-on-interactive-base: #ffffff;
+  --icon-agent-plan-base: #cd73d5;
+  --icon-agent-docs-base: #c78b05;
+  --icon-agent-ask-base: #156ebe;
+  --icon-agent-build-base: #c0d4fb;
+  --icon-on-success-base: #ffffff;
+  --icon-on-success-hover: #000000;
+  --icon-on-success-selected: #000000;
+  --icon-on-warning-base: #ffffff;
+  --icon-on-warning-hover: #000000;
+  --icon-on-warning-selected: #000000;
+  --icon-on-critical-base: #ffffff;
+  --icon-on-critical-hover: #000000;
+  --icon-on-critical-selected: #000000;
+  --icon-on-info-base: #ffffff;
+  --icon-on-info-hover: #000000;
+  --icon-on-info-selected: #000000;
+  --icon-diff-add-base: #c4ffc0;
+  --icon-diff-add-hover: #78d474;
+  --icon-diff-add-active: #c4ffc0;
+  --icon-diff-delete-base: #ec2f14;
+  --icon-diff-delete-hover: #fec3b8;
+  --icon-diff-modified-base: #fde280;
+  --syntax-comment: #8f8f8f;
+  --syntax-regexp: var(--text-base);
+  --syntax-string: #00ceb9;
+  --syntax-keyword: #edb2f1;
+  --syntax-primitive: #8cb0ff;
+  --syntax-operator: var(--text-weak);
+  --syntax-variable: var(--text-strong);
+  --syntax-property: #fab283;
+  --syntax-type: #fcd53a;
+  --syntax-constant: #93e9f6;
+  --syntax-punctuation: var(--text-weak);
+  --syntax-object: var(--text-strong);
+  --syntax-success: #25ff18;
+  --syntax-warning: #ffca76;
+  --syntax-critical: #fab283;
+  --syntax-info: #facffe;
+  --syntax-diff-add: #c4ffc0;
+  --syntax-diff-delete: #fab283;
+  --syntax-diff-unknown: #edb2f1;
+  --markdown-heading: #fed6bd;
+  --markdown-text: #A0A0A0;
+  --markdown-link: #cfdffd;
+  --markdown-link-text: #facffe;
+  --markdown-code: #94fd8b;
+  --markdown-block-quote: #fde280;
+  --markdown-emph: #fde280;
+  --markdown-strong: #facffe;
+  --markdown-horizontal-rule: #4d4c4a;
+  --markdown-list-item: #cfdffd;
+  --markdown-list-enumeration: #facffe;
+  --markdown-image: #cfdffd;
+  --markdown-image-text: #facffe;
+  --markdown-code-block: #A0A0A0;
+  --avatar-background-pink: #501b3f;
+  --avatar-background-mint: #033a34;
+  --avatar-background-orange: #5f2a06;
+  --avatar-background-purple: #432155;
+  --avatar-background-cyan: #0f3058;
+  --avatar-background-lime: #2b3711;
+  --avatar-text-pink: #e34ba9;
+  --avatar-text-mint: #95f3d9;
+  --avatar-text-orange: #ff802b;
+  --avatar-text-purple: #9d5bd2;
+  --avatar-text-cyan: #369eff;
+  --avatar-text-lime: #c4f042;
+  --text-stronger: #EDEDED;
+}</style><style>
+			.decorum-tb-btn {
+				cursor: default;
+				width: 58px;
+				height: 32px;
+				border: none;
+				padding: 0px;
+				outline: none;
+				display: flex;
+				font-size: 10px;
+				font-weight: 300;
+				box-shadow: none;
+				border-radius: 0;
+				align-items: center;
+				justify-content: center;
+				transition: background 0.1s;
+				background-color: transparent;
+				text-rendering: optimizeLegibility;
+				-webkit-font-smoothing: antialiased;
+				font-family: 'Segoe Fluent Icons', 'Segoe MDL2 Assets';
+			}
+
+			.decorum-tb-btn:hover {
+				background-color: rgba(0,0,0,0.2);
+			}
+
+			#decorum-tb-close:hover {
+				background-color: rgba(255,0,0,0.7) !important;
+			}
+		</style><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/home-DZdtV8_9.js"><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/dialog-select-directory-kPwnNP2z.js"><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/file-icon-Dqmw4TEQ.js"><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/list-BavCcUvg.js"><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/index-31WNsIV6.js"><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/dialog-select-server-B3vIbRmx.js"><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/server-row-DfcdjTeM.js"><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/index-BJP36MvY.js"><style>
+			.decorum-tb-btn {
+				cursor: default;
+				width: 58px;
+				height: 32px;
+				border: none;
+				padding: 0px;
+				outline: none;
+				display: flex;
+				font-size: 10px;
+				font-weight: 300;
+				box-shadow: none;
+				border-radius: 0;
+				align-items: center;
+				justify-content: center;
+				transition: background 0.1s;
+				background-color: transparent;
+				text-rendering: optimizeLegibility;
+				-webkit-font-smoothing: antialiased;
+				font-family: 'Segoe Fluent Icons', 'Segoe MDL2 Assets';
+			}
+
+			.decorum-tb-btn:hover {
+				background-color: rgba(0,0,0,0.2);
+			}
+
+			#decorum-tb-close:hover {
+				background-color: rgba(255,0,0,0.7) !important;
+			}
+		</style><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/session-B8JImXuR.js"><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/select-DEA82oY4.js"><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/provider-icon-CJLXUWVz.js"><style id="opencode-line-comment-styles">
+[data-annotation-slot] {
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+[data-component="line-comment"] {
+  position: absolute;
+  right: 24px;
+  z-index: var(--line-comment-z, 30);
+}
+
+[data-component="line-comment"][data-inline] {
+  position: relative;
+  right: auto;
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  align-items: flex-start;
+}
+
+[data-component="line-comment"][data-open] {
+  z-index: var(--line-comment-open-z, 100);
+}
+
+[data-component="line-comment"] [data-slot="line-comment-button"] {
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--icon-interactive-base);
+  box-shadow: var(--shadow-xs);
+  cursor: default;
+  border: none;
+}
+
+[data-component="line-comment"][data-variant="add"] [data-slot="line-comment-button"] {
+  background: var(--syntax-diff-add);
+}
+
+[data-component="line-comment"] [data-component="icon"] {
+  color: var(--white);
+}
+
+[data-component="line-comment"] [data-slot="line-comment-icon"] {
+  width: 12px;
+  height: 12px;
+  color: var(--white);
+}
+
+[data-component="line-comment"] [data-slot="line-comment-button"]:focus {
+  outline: none;
+}
+
+[data-component="line-comment"] [data-slot="line-comment-button"]:focus-visible {
+  box-shadow: var(--shadow-xs-border-focus);
+}
+
+[data-component="line-comment"] [data-slot="line-comment-popover"] {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: -8px;
+  z-index: var(--line-comment-popover-z, 40);
+  min-width: 200px;
+  max-width: none;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background: var(--surface-raised-stronger-non-alpha);
+  box-shadow: var(--shadow-xxs-border);
+  padding: 12px;
+}
+
+[data-component="line-comment"][data-inline] [data-slot="line-comment-popover"] {
+  position: relative;
+  top: auto;
+  right: auto;
+  margin-left: 8px;
+  flex: 1 1 0%;
+  width: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+
+[data-component="line-comment"][data-inline] [data-slot="line-comment-popover"][data-inline-body] {
+  margin-left: 0;
+}
+
+[data-component="line-comment"][data-inline][data-variant="default"] [data-slot="line-comment-popover"][data-inline-body] {
+  cursor: pointer;
+}
+
+[data-component="line-comment"][data-variant="editor"] [data-slot="line-comment-popover"] {
+  width: 380px;
+  max-width: none;
+  padding: 8px;
+  border-radius: 14px;
+}
+
+[data-component="line-comment"][data-inline][data-variant="editor"] [data-slot="line-comment-popover"] {
+  width: 100%;
+}
+
+[data-component="line-comment"] [data-slot="line-comment-content"] {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  min-width: 0;
+}
+
+[data-component="line-comment"] [data-slot="line-comment-head"] {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+}
+
+[data-component="line-comment"] [data-slot="line-comment-text"] {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-x-large);
+  letter-spacing: var(--letter-spacing-normal);
+  color: var(--text-strong);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+[data-component="line-comment"] [data-slot="line-comment-tools"] {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+[data-component="line-comment"] [data-slot="line-comment-label"],
+[data-component="line-comment"] [data-slot="line-comment-editor-label"] {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-large);
+  letter-spacing: var(--letter-spacing-normal);
+  color: var(--text-weak);
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+[data-component="line-comment"] [data-slot="line-comment-editor"] {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+}
+
+[data-component="line-comment"] [data-slot="line-comment-textarea"] {
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+  padding: 8px;
+  border-radius: var(--radius-md);
+  background: var(--surface-base);
+  border: 1px solid var(--border-base);
+  color: var(--text-strong);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-large);
+}
+
+[data-component="line-comment"] [data-slot="line-comment-textarea"]:focus {
+  outline: none;
+  box-shadow: var(--shadow-xs-border-select);
+}
+
+[data-component="line-comment"] [data-slot="line-comment-mention-list"] {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 180px;
+  overflow: auto;
+  padding: 4px;
+  border: 1px solid var(--border-base);
+  border-radius: var(--radius-md);
+  background: var(--surface-base);
+}
+
+[data-component="line-comment"] [data-slot="line-comment-mention-item"] {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+  padding: 6px 8px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-strong);
+  text-align: left;
+}
+
+[data-component="line-comment"] [data-slot="line-comment-mention-item"][data-active] {
+  background: var(--surface-raised-base-hover);
+}
+
+[data-component="line-comment"] [data-slot="line-comment-mention-path"] {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-large);
+}
+
+[data-component="line-comment"] [data-slot="line-comment-mention-dir"] {
+  min-width: 0;
+  color: var(--text-weak);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+[data-component="line-comment"] [data-slot="line-comment-mention-file"] {
+  color: var(--text-strong);
+  white-space: nowrap;
+}
+
+[data-component="line-comment"] [data-slot="line-comment-actions"] {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-left: 8px;
+  min-width: 0;
+}
+
+[data-component="line-comment"] [data-slot="line-comment-editor-label"] {
+  flex: 1 1 220px;
+  margin-right: auto;
+}
+
+[data-component="line-comment"] [data-slot="line-comment-action"] {
+  border: 1px solid var(--border-base);
+  background: var(--surface-base);
+  color: var(--text-strong);
+  border-radius: var(--radius-md);
+  height: 28px;
+  padding: 0 10px;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
+}
+
+[data-component="line-comment"] [data-slot="line-comment-action"][data-variant="ghost"] {
+  background: transparent;
+}
+
+[data-component="line-comment"] [data-slot="line-comment-action"][data-variant="primary"] {
+  background: var(--text-strong);
+  border-color: var(--text-strong);
+  color: var(--background-base);
+}
+
+[data-component="line-comment"] [data-slot="line-comment-action"]:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+</style><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/html-GMplVEZG.js"><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/javascript-wDzz0qaB.js"><link rel="modulepreload" as="script" crossorigin="" href="http://tauri.localhost/assets/css-DPfMkruS.js"></head>
+  <body class="antialiased overscroll-none text-12-regular overflow-hidden">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root" class="flex flex-col h-dvh"><div class="relative bg-background-base flex-1 min-h-0 min-w-0 flex flex-col select-none [&amp;_input]:select-text [&amp;_textarea]:select-text [&amp;_[contenteditable]]:select-text"><header class="h-10 shrink-0 bg-background-base relative grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center" data-tauri-drag-region=""><div class="flex items-center min-w-0 pl-2"><div class="xl:hidden w-[48px] shrink-0 flex items-center justify-center"><button type="button" icon="menu" aria-label="Toggle menu" aria-expanded="false" data-component="icon-button" data-icon="menu" data-size="normal" data-variant="ghost" class="titlebar-icon rounded-md"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M2.5 5H17.5M2.5 10H17.5M2.5 15H17.5" stroke="currentColor" stroke-linecap="square"></path></svg></div></button></div><div class="flex items-center gap-1 shrink-0"><div data-closed="" data-component="tooltip-trigger" class="hidden xl:flex shrink-0 ml-2"><button type="button" aria-label="Toggle sidebar" aria-expanded="false" data-component="button" data-size="normal" data-variant="ghost" class="group/sidebar-toggle titlebar-icon w-8 h-6 p-0 box-border"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M7.86667 2H5.2H2V18H5.2H7.86667M7.86667 2H18V18H7.86667M7.86667 2V18" stroke="currentColor"></path></svg></div></button></div><div class="hidden xl:flex items-center shrink-0"><div class="flex items-center shrink-0 w-8 mr-1"><div class="transition-opacity opacity-100 duration-120 ease-out"><div data-closed="" data-component="tooltip-trigger"><button type="button" aria-label="New session" data-component="button" data-size="normal" data-variant="ghost" data-icon="new-session" class="titlebar-icon w-8 h-6 p-0 box-border"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M12 2H2V18H18V8M6 11.3818V14H8.61818L18 4.61818L15.3818 2L6 11.3818Z" stroke="currentColor"></path></svg></div></button></div></div></div><div class="flex items-center shrink-0 duration-180 ease-out"><div class="flex items-center gap-0 transition-transform"><div data-closed="" data-component="tooltip-trigger"><button type="button" aria-label="Navigate back" data-component="button" data-size="normal" data-variant="ghost" data-icon="chevron-left" class="titlebar-icon w-6 h-6 p-0 box-border"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M12 15L7 10L12 5" stroke="currentColor" stroke-linecap="square"></path></svg></div></button></div><div data-closed="" data-component="tooltip-trigger"><button type="button" disabled="" data-disabled="" aria-label="Navigate forward" data-component="button" data-size="normal" data-variant="ghost" data-icon="chevron-right" class="titlebar-icon w-6 h-6 p-0 box-border"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M8 15L13 10L8 5" stroke="currentColor" stroke-linecap="square"></path></svg></div></button></div></div><div id="opencode-titlebar-left" class="flex items-center gap-3 min-w-0 px-2"></div></div></div></div></div><div class="min-w-0 flex items-center justify-center pointer-events-none"><div id="opencode-titlebar-center" class="pointer-events-auto min-w-0 flex justify-center w-fit max-w-full"><div><button type="button" aria-label="Search files" data-component="button" data-size="small" data-variant="ghost" class="hidden md:flex w-[240px] max-w-full min-w-0 items-center gap-2 justify-between rounded-md border border-border-weak-base bg-surface-panel shadow-none cursor-default"><div class="flex min-w-0 flex-1 items-center overflow-visible"><span class="flex-1 min-w-0 text-12-regular text-text-weak truncate text-left">Search C:</span></div><span data-component="keybind" class="shrink-0 !border-0 !bg-transparent !shadow-none px-0 text-text-weaker">Ctrl+K</span></button></div></div></div><div data-tauri-drag-region="" class="flex items-center min-w-0 justify-end"><div id="opencode-titlebar-right" class="flex items-center gap-1 shrink-0 justify-end"><div><div class="flex items-center gap-2"><div class="hidden xl:flex items-center"><div class="flex items-center"><div class="flex h-[24px] box-border items-center rounded-md border border-border-weak-base bg-surface-panel overflow-hidden"><button type="button" aria-label="Open in File Explorer" data-component="button" data-size="normal" data-variant="ghost" class="rounded-none h-full px-0.5 border-none shadow-none disabled:!cursor-default"><div class="flex size-5 shrink-0 items-center justify-center [&amp;_[data-component=app-icon]]:size-5"><img data-component="app-icon" src="data:image/svg+xml,%3csvg%20width=&#39;40&#39;%20height=&#39;40&#39;%20viewBox=&#39;0%200%2040%2040&#39;%20fill=&#39;none&#39;%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%3e%3cpath%20d=&#39;M16.2414%208.05369L14.955%206.65636C14.7646%206.44946%2014.5333%206.2843%2014.2757%206.17133C14.0182%206.05836%2013.7401%206.00002%2013.4588%206H4.86684C4.753%205.99995%204.64025%206.02234%204.53506%206.06589C4.42987%206.10944%204.33429%206.17329%204.25379%206.25379C4.17329%206.33429%204.10944%206.42987%204.06589%206.53506C4.02234%206.64025%203.99995%206.753%204%206.86684V12.8779L4.04302%2012.8825C4.10268%2012.6706%204.22985%2012.4839%204.40523%2012.3508C4.5806%2012.2177%204.7946%2012.1455%205.01476%2012.1451H13.189C14.3506%2012.1451%2015.4795%2011.6366%2016.1675%2010.7004C16.5166%2010.2255%2016.9726%209.83942%2017.4985%209.57327C18.0244%209.30713%2018.6056%209.16842%2019.195%209.16836H34.9852C35.2544%209.16836%2035.5125%209.27527%2035.7028%209.46557C35.8931%209.65587%2036%209.91398%2036%2010.1831V8.99058C36%208.77152%2035.913%208.56144%2035.7581%208.40654C35.6032%208.25164%2035.3931%208.16462%2035.174%208.16462H16.4953C16.4476%208.16469%2016.4004%208.15486%2016.3567%208.13577C16.313%208.11667%2016.2738%208.08873%2016.2414%208.05369Z&#39;%20fill=&#39;url(%23paint0_linear_5437_79060)&#39;/%3e%3cpath%20d=&#39;M16.2002%2010.3751C15.8497%2010.8375%2015.397%2011.2125%2014.8774%2011.4707C14.3579%2011.7289%2013.7855%2011.8634%2013.2053%2011.8634H5.01476C4.88147%2011.8634%204.74948%2011.8897%204.62634%2011.9407C4.5032%2011.9917%204.39132%2012.0665%204.29709%2012.1608C4.20286%2012.255%204.12812%2012.3669%204.07714%2012.4901C4.02617%2012.6133%203.99995%2012.7453%204%2012.8785V32.4302C4%2032.6993%204.10691%2032.9574%204.29722%2033.1477C4.48752%2033.338%204.74563%2033.4449%205.01476%2033.4449H34.9852C35.2544%2033.4449%2035.5125%2033.338%2035.7028%2033.1477C35.8931%2032.9574%2036%2032.6993%2036%2032.4302V9.90147C36%209.63234%2035.8931%209.37424%2035.7028%209.18393C35.5125%208.99363%2035.2544%208.88672%2034.9852%208.88672H19.195C18.6148%208.88679%2018.0425%209.0212%2017.5229%209.27942C17.0033%209.53764%2016.5506%209.91265%2016.2002%2010.3751Z&#39;%20fill=&#39;url(%23paint1_linear_5437_79060)&#39;/%3e%3cpath%20d=&#39;M27.7632%2023.2969H12.2368C11.7852%2023.2968%2011.3379%2023.3857%2010.9207%2023.5585C10.5034%2023.7312%2010.1242%2023.9846%209.80488%2024.3039C9.48553%2024.6233%209.23222%2025.0024%209.05943%2025.4197C8.88664%2025.8369%208.79776%2026.2842%208.79785%2026.7358V33.4448H31.2025V26.7358C31.2021%2024.8364%2029.6626%2023.2969%2027.7632%2023.2969Z&#39;%20fill=&#39;url(%23paint2_linear_5437_79060)&#39;/%3e%3cpath%20d=&#39;M26.5965%2029.7865H13.404C13.2154%2029.7865%2013.0345%2029.7116%2012.9012%2029.5782C12.7678%2029.4448%2012.6929%2029.264%2012.6929%2029.0754C12.6929%2028.8868%2012.7678%2028.7059%2012.9012%2028.5725C13.0345%2028.4392%2013.2154%2028.3643%2013.404%2028.3643H26.5965C26.7851%2028.3643%2026.966%2028.4392%2027.0993%2028.5725C27.2327%2028.7059%2027.3076%2028.8868%2027.3076%2029.0754C27.3076%2029.264%2027.2327%2029.4448%2027.0993%2029.5782C26.966%2029.7116%2026.7851%2029.7865%2026.5965%2029.7865Z&#39;%20fill=&#39;%2310498A&#39;/%3e%3cdefs%3e%3clinearGradient%20id=&#39;paint0_linear_5437_79060&#39;%20x1=&#39;19.7682&#39;%20y1=&#39;9.59964&#39;%20x2=&#39;19.2608&#39;%20y2=&#39;6.75804&#39;%20gradientUnits=&#39;userSpaceOnUse&#39;%3e%3cstop%20stop-color=&#39;%23CE9918&#39;/%3e%3cstop%20offset=&#39;0.5902&#39;%20stop-color=&#39;%23DF9E00&#39;/%3e%3c/linearGradient%3e%3clinearGradient%20id=&#39;paint1_linear_5437_79060&#39;%20x1=&#39;26.3559&#39;%20y1=&#39;28.492&#39;%20x2=&#39;13.062&#39;%20y2=&#39;13.1687&#39;%20gradientUnits=&#39;userSpaceOnUse&#39;%3e%3cstop%20stop-color=&#39;%23F5B509&#39;/%3e%3cstop%20offset=&#39;1&#39;%20stop-color=&#39;%23FECE49&#39;/%3e%3c/linearGradient%3e%3clinearGradient%20id=&#39;paint2_linear_5437_79060&#39;%20x1=&#39;27.4873&#39;%20y1=&#39;32.5737&#39;%20x2=&#39;7.9015&#39;%20y2=&#39;23.2375&#39;%20gradientUnits=&#39;userSpaceOnUse&#39;%3e%3cstop%20stop-color=&#39;%230161B2&#39;/%3e%3cstop%20offset=&#39;1&#39;%20stop-color=&#39;%231291DD&#39;/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e" alt="" draggable="false"></div></button><button type="button" id="dropdownmenu-cl-63-trigger" aria-haspopup="true" aria-expanded="false" data-closed="" icon="chevron-down" aria-label="Open options" data-slot="dropdown-menu-trigger" data-component="icon-button" data-icon="chevron-down" data-size="normal" data-variant="ghost" class="rounded-none h-full w-[20px] p-0 border-none shadow-none data-[expanded]:bg-surface-raised-base-active disabled:!cursor-default"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M6.6665 8.33325L9.99984 11.6666L13.3332 8.33325" stroke="currentColor" stroke-linecap="square"></path></svg></div></button></div></div></div><div class="flex items-center gap-1"><div data-closed="" data-component="tooltip-trigger"><button type="button" aria-haspopup="dialog" aria-expanded="false" data-closed="" data-slot="popover-trigger" aria-label="Status" data-component="button" data-size="normal" data-variant="ghost" class="titlebar-icon w-8 h-6 p-0 box-border" style="scale: 1;"><div class="relative size-4"><div class="badge-mask-tight size-4 flex items-center justify-center"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M2 10V18H18V10M2 10V2H18V10M2 10H18M5 6H9M5 14H9" stroke="currentColor"></path></svg></div></div><div class="absolute -top-px -right-px size-1.5 rounded-full bg-icon-success-base"></div></div></button></div><div data-closed="" data-component="tooltip-trigger"><button type="button" aria-label="Toggle terminal" aria-expanded="false" aria-controls="terminal-panel" data-component="button" data-size="normal" data-variant="ghost" class="group/terminal-toggle titlebar-icon w-8 h-6 p-0 box-border shrink-0"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M6.5 8L8.64286 10L6.5 12M10.9286 12H13.5M2 18H18V2H2V18Z" stroke="currentColor" stroke-linecap="square"></path></svg></div></button></div><div class="hidden md:flex items-center gap-1 shrink-0"><div data-closed="" data-component="tooltip-trigger"><button type="button" aria-label="Toggle review" aria-expanded="true" aria-controls="review-panel" data-component="button" data-size="normal" data-variant="ghost" class="group/review-toggle titlebar-icon w-8 h-6 p-0 box-border"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M18 18V2L2 2L2 18H18Z" fill="currentColor" fill-opacity="0.1"></path>
+<path d="M7 14.5H13M7 7.99512H10.0049M10.0049 7.99512H13M10.0049 7.99512V5M10.0049 7.99512V11M18 18V2L2 2L2 18H18Z" stroke="currentColor"></path></svg></div></button></div><div data-closed="" data-component="tooltip-trigger"><button type="button" aria-label="Toggle file tree" aria-expanded="false" aria-controls="file-tree-panel" data-component="button" data-size="normal" data-variant="ghost" class="titlebar-icon w-8 h-6 p-0 box-border"><div class="relative flex items-center justify-center size-4"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" class="text-icon-weak" viewBox="0 0 20 20"><path d="M18 18V5H9.5L7.5 2H2L2 18H5M18 18H5M18 18V8.5H5V18" stroke="currentColor" stroke-linecap="square"></path></svg></div></div></button></div></div></div></div></div></div><div data-tauri-decorum-tb="" class="flex flex-row"><button id="decorum-tb-minimize" class="decorum-tb-btn"></button><button id="decorum-tb-maximize" class="decorum-tb-btn"></button><button id="decorum-tb-close" class="decorum-tb-btn"></button></div></div></header><div class="flex-1 min-h-0 min-w-0 flex"><div class="flex-1 min-h-0 relative"><div class="size-full relative overflow-x-hidden"><nav data-component="sidebar-nav-desktop" class="hidden xl:block absolute inset-y-0 left-0 z-10" aria-label="Projects and sessions" style="width: 344px;"><div class="@container w-full h-full contain-strict"><div class="flex h-full w-full min-w-0 overflow-hidden"><div data-component="sidebar-rail" class="w-16 shrink-0 bg-background-base flex flex-col items-center overflow-hidden"><div class="flex-1 min-h-0 w-full"><div class="h-full w-full flex flex-col items-center gap-3 px-3 py-3 overflow-y-auto no-scrollbar"><div><button data-closed="" id="contextmenu-cl-157-trigger" type="button" aria-label="" data-action="project-switch" data-project="Lw" data-slot="context-menu-trigger" class="flex items-center justify-center size-10 p-1 rounded-lg overflow-hidden transition-colors cursor-default bg-transparent border-2 border-icon-strong-base hover:bg-surface-base-hover"><div class="relative size-8 shrink-0 rounded "><div class="size-full rounded overflow-clip"><div data-component="avatar" data-size="normal" class="size-full rounded" style="--avatar-bg: var(--avatar-background-orange); --avatar-fg: var(--avatar-text-orange);"></div></div></div></button></div><div data-component="tooltip-trigger" data-closed=""><button type="button" icon="plus" aria-label="Open project" data-component="icon-button" data-icon="plus" data-size="large" data-variant="ghost"><div data-component="icon" data-size="normal"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M9.9987 2.20703V9.9987M9.9987 9.9987V17.7904M9.9987 9.9987H2.20703M9.9987 9.9987H17.7904" stroke="currentColor" stroke-linecap="square"></path></svg></div></button></div></div></div><div class="shrink-0 w-full pt-3 pb-6 flex flex-col items-center gap-2"><div data-closed="" data-component="tooltip-trigger"><button type="button" icon="settings-gear" aria-label="Settings" data-component="icon-button" data-icon="settings-gear" data-size="large" data-variant="ghost"><div data-component="icon" data-size="normal"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M7.62516 4.46094L5.05225 3.86719L3.86475 5.05469L4.4585 7.6276L2.0835 9.21094V10.7943L4.4585 12.3776L3.86475 14.9505L5.05225 16.138L7.62516 15.5443L9.2085 17.9193H10.7918L12.3752 15.5443L14.9481 16.138L16.1356 14.9505L15.5418 12.3776L17.9168 10.7943V9.21094L15.5418 7.6276L16.1356 5.05469L14.9481 3.86719L12.3752 4.46094L10.7918 2.08594H9.2085L7.62516 4.46094Z" stroke="currentColor"></path><path d="M12.5002 10.0026C12.5002 11.3833 11.3809 12.5026 10.0002 12.5026C8.61945 12.5026 7.50016 11.3833 7.50016 10.0026C7.50016 8.62189 8.61945 7.5026 10.0002 7.5026C11.3809 7.5026 12.5002 8.62189 12.5002 10.0026Z" stroke="currentColor"></path></svg></div></button></div><div data-closed="" data-component="tooltip-trigger"><button type="button" icon="help" aria-label="Help" data-component="icon-button" data-icon="help" data-size="large" data-variant="ghost"><div data-component="icon" data-size="normal"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M7.91683 7.91927V6.2526H12.0835V8.7526L10.0002 10.0026V12.0859M10.0002 13.7526V13.7609M17.9168 10.0026C17.9168 14.3749 14.3724 17.9193 10.0002 17.9193C5.62791 17.9193 2.0835 14.3749 2.0835 10.0026C2.0835 5.63035 5.62791 2.08594 10.0002 2.08594C14.3724 2.08594 17.9168 5.63035 17.9168 10.0026Z" stroke="currentColor" stroke-linecap="square"></path></svg></div></button></div></div></div><div class="flex-1 flex h-full min-h-0 min-w-0 overflow-hidden pointer-events-none" aria-hidden="true" inert=""><div class="flex flex-col min-h-0 min-w-0 box-border rounded-tl-[12px] px-3 border-l border-t border-border-weaker-base bg-background-base" style="width: 280px;"><div class="shrink-0 pl-1 py-1"><div class="group/project flex items-start justify-between gap-2 py-2 pl-2 pr-0"><div class="flex flex-col min-w-0"><span class="text-14-medium text-text-strong truncate"></span><div data-closed="" data-component="tooltip-trigger" class="shrink-0"><span class="text-12-regular text-text-base truncate select-text">/</span></div></div><button type="button" id="dropdownmenu-cl-71-trigger" aria-haspopup="true" aria-expanded="false" data-closed="" icon="dot-grid" data-action="project-menu" data-project="Lw" aria-label="More options" data-slot="dropdown-menu-trigger" data-component="icon-button" data-icon="dot-grid" data-size="normal" data-variant="ghost" class="opacity-100 shrink-0 size-6 rounded-md transition-opacity data-[expanded]:bg-surface-base-active"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M2.08398 9.16602H3.75065V10.8327H2.08398V9.16602Z" fill="currentColor"></path><path d="M10.834 9.16602H9.16732V10.8327H10.834V9.16602Z" fill="currentColor"></path><path d="M16.2507 9.16602H17.9173V10.8327H16.2507V9.16602Z" fill="currentColor"></path><path d="M2.08398 9.16602H3.75065V10.8327H2.08398V9.16602Z" stroke="currentColor"></path><path d="M10.834 9.16602H9.16732V10.8327H10.834V9.16602Z" stroke="currentColor"></path><path d="M16.2507 9.16602H17.9173V10.8327H16.2507V9.16602Z" stroke="currentColor"></path></svg></div></button></div></div><div class="flex-1 min-h-0 flex flex-col"><div class="shrink-0 py-4"><button type="button" data-component="button" data-size="large" data-variant="secondary" data-icon="new-session" class="w-full"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M12 2H2V18H18V8M6 11.3818V14H8.61818L18 4.61818L15.3818 2L6 11.3818Z" stroke="currentColor"></path></svg></div>New session</button></div><div class="flex-1 min-h-0"><div class="size-full flex flex-col py-2 overflow-y-auto no-scrollbar [overflow-anchor:none]"><nav class="flex flex-col gap-1"></nav></div></div></div><div class="shrink-0 px-3 py-3"><div class="rounded-xl bg-background-base shadow-xs-border-base" data-component="getting-started"><div class="p-3 flex flex-col gap-6"><div class="flex flex-col gap-2"><div class="text-14-medium text-text-strong">Getting started</div><div class="text-14-regular text-text-base" style="line-height:var(--line-height-normal)">OpenCode includes free models so you can start immediately.</div><div class="text-14-regular text-text-base" style="line-height:var(--line-height-normal)">Connect any provider to use models, inc. Claude, GPT, Gemini etc.</div></div><div data-component="getting-started-actions"><button type="button" data-component="button" data-size="large" data-variant="secondary" data-icon="plus-small"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M9.99984 5.41699V10.0003M9.99984 10.0003V14.5837M9.99984 10.0003H5.4165M9.99984 10.0003H14.5832" stroke="currentColor" stroke-linecap="square"></path></svg></div>Connect provider</button><button type="button" data-component="button" data-size="large" data-variant="ghost">Not yet</button></div></div></div></div></div></div></div></div></nav><div class="hidden xl:block pointer-events-none absolute top-0 right-0 z-0 border-t border-border-weaker-base" style="left:calc(4rem + 12px)"></div><div class="xl:hidden"><div class="fixed inset-x-0 top-10 bottom-0 z-40 transition-opacity duration-200 opacity-0 pointer-events-none"></div><nav data-component="sidebar-nav-mobile" aria-label="Projects and sessions" class="@container fixed top-10 bottom-0 left-0 z-50 w-full max-w-[400px] overflow-hidden border-r border-border-weaker-base bg-background-base transition-transform duration-200 ease-out -translate-x-full"><div class="flex h-full w-full min-w-0 overflow-hidden"><div data-component="sidebar-rail" class="w-16 shrink-0 bg-background-base flex flex-col items-center overflow-hidden"><div class="flex-1 min-h-0 w-full"><div class="h-full w-full flex flex-col items-center gap-3 px-3 py-3 overflow-y-auto no-scrollbar"><div><button data-closed="" id="contextmenu-cl-155-trigger" type="button" aria-label="" data-action="project-switch" data-project="Lw" data-slot="context-menu-trigger" class="flex items-center justify-center size-10 p-1 rounded-lg overflow-hidden transition-colors cursor-default bg-transparent border-2 border-icon-strong-base hover:bg-surface-base-hover"><div class="relative size-8 shrink-0 rounded "><div class="size-full rounded overflow-clip"><div data-component="avatar" data-size="normal" class="size-full rounded" style="--avatar-bg: var(--avatar-background-orange); --avatar-fg: var(--avatar-text-orange);"></div></div></div></button></div><div data-closed="" data-component="tooltip-trigger"><button type="button" icon="plus" aria-label="Open project" data-component="icon-button" data-icon="plus" data-size="large" data-variant="ghost"><div data-component="icon" data-size="normal"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M9.9987 2.20703V9.9987M9.9987 9.9987V17.7904M9.9987 9.9987H2.20703M9.9987 9.9987H17.7904" stroke="currentColor" stroke-linecap="square"></path></svg></div></button></div></div></div><div class="shrink-0 w-full pt-3 pb-6 flex flex-col items-center gap-2"><div data-closed="" data-component="tooltip-trigger"><button type="button" icon="settings-gear" aria-label="Settings" data-component="icon-button" data-icon="settings-gear" data-size="large" data-variant="ghost"><div data-component="icon" data-size="normal"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M7.62516 4.46094L5.05225 3.86719L3.86475 5.05469L4.4585 7.6276L2.0835 9.21094V10.7943L4.4585 12.3776L3.86475 14.9505L5.05225 16.138L7.62516 15.5443L9.2085 17.9193H10.7918L12.3752 15.5443L14.9481 16.138L16.1356 14.9505L15.5418 12.3776L17.9168 10.7943V9.21094L15.5418 7.6276L16.1356 5.05469L14.9481 3.86719L12.3752 4.46094L10.7918 2.08594H9.2085L7.62516 4.46094Z" stroke="currentColor"></path><path d="M12.5002 10.0026C12.5002 11.3833 11.3809 12.5026 10.0002 12.5026C8.61945 12.5026 7.50016 11.3833 7.50016 10.0026C7.50016 8.62189 8.61945 7.5026 10.0002 7.5026C11.3809 7.5026 12.5002 8.62189 12.5002 10.0026Z" stroke="currentColor"></path></svg></div></button></div><div data-closed="" data-component="tooltip-trigger"><button type="button" icon="help" aria-label="Help" data-component="icon-button" data-icon="help" data-size="large" data-variant="ghost"><div data-component="icon" data-size="normal"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M7.91683 7.91927V6.2526H12.0835V8.7526L10.0002 10.0026V12.0859M10.0002 13.7526V13.7609M17.9168 10.0026C17.9168 14.3749 14.3724 17.9193 10.0002 17.9193C5.62791 17.9193 2.0835 14.3749 2.0835 10.0026C2.0835 5.63035 5.62791 2.08594 10.0002 2.08594C14.3724 2.08594 17.9168 5.63035 17.9168 10.0026Z" stroke="currentColor" stroke-linecap="square"></path></svg></div></button></div></div></div><div class="flex-1 flex h-full min-h-0 min-w-0 overflow-hidden" aria-hidden="false"><div class="flex flex-col min-h-0 min-w-0 box-border rounded-tl-[12px] px-3 border-l border-t border-border-weaker-base bg-background-base flex-1 max-w-full overflow-hidden"><div class="shrink-0 pl-1 py-1"><div class="group/project flex items-start justify-between gap-2 py-2 pl-2 pr-0"><div class="flex flex-col min-w-0"><span class="text-14-medium text-text-strong truncate"></span><div data-closed="" data-component="tooltip-trigger" class="shrink-0"><span class="text-12-regular text-text-base truncate select-text">/</span></div></div><button type="button" id="dropdownmenu-cl-74-trigger" aria-haspopup="true" aria-expanded="false" data-closed="" icon="dot-grid" data-action="project-menu" data-project="Lw" aria-label="More options" data-slot="dropdown-menu-trigger" data-component="icon-button" data-icon="dot-grid" data-size="normal" data-variant="ghost" class="opacity-100 shrink-0 size-6 rounded-md transition-opacity data-[expanded]:bg-surface-base-active"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M2.08398 9.16602H3.75065V10.8327H2.08398V9.16602Z" fill="currentColor"></path><path d="M10.834 9.16602H9.16732V10.8327H10.834V9.16602Z" fill="currentColor"></path><path d="M16.2507 9.16602H17.9173V10.8327H16.2507V9.16602Z" fill="currentColor"></path><path d="M2.08398 9.16602H3.75065V10.8327H2.08398V9.16602Z" stroke="currentColor"></path><path d="M10.834 9.16602H9.16732V10.8327H10.834V9.16602Z" stroke="currentColor"></path><path d="M16.2507 9.16602H17.9173V10.8327H16.2507V9.16602Z" stroke="currentColor"></path></svg></div></button></div></div><div class="flex-1 min-h-0 flex flex-col"><div class="shrink-0 py-4"><button type="button" data-component="button" data-size="large" data-variant="secondary" data-icon="new-session" class="w-full"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M12 2H2V18H18V8M6 11.3818V14H8.61818L18 4.61818L15.3818 2L6 11.3818Z" stroke="currentColor"></path></svg></div>New session</button></div><div class="flex-1 min-h-0"><div class="size-full flex flex-col py-2 overflow-y-auto no-scrollbar [overflow-anchor:none]"><nav class="flex flex-col gap-1"></nav></div></div></div><div class="shrink-0 px-3 py-3"><div class="rounded-xl bg-background-base shadow-xs-border-base" data-component="getting-started"><div class="p-3 flex flex-col gap-6"><div class="flex flex-col gap-2"><div class="text-14-medium text-text-strong">Getting started</div><div class="text-14-regular text-text-base" style="line-height:var(--line-height-normal)">OpenCode includes free models so you can start immediately.</div><div class="text-14-regular text-text-base" style="line-height:var(--line-height-normal)">Connect any provider to use models, inc. Claude, GPT, Gemini etc.</div></div><div data-component="getting-started-actions"><button type="button" data-component="button" data-size="large" data-variant="secondary" data-icon="plus-small"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M9.99984 5.41699V10.0003M9.99984 10.0003V14.5837M9.99984 10.0003H5.4165M9.99984 10.0003H14.5832" stroke="currentColor" stroke-linecap="square"></path></svg></div>Connect provider</button><button type="button" data-component="button" data-size="large" data-variant="ghost">Not yet</button></div></div></div></div></div></div></div></nav></div><div class="absolute inset-0 xl:inset-y-0 xl:right-0 xl:left-[var(--main-left)] z-20 transition-[left] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-[left] motion-reduce:transition-none" style="--main-left: 4rem;"><main class="size-full overflow-x-hidden flex flex-col items-start contain-strict border-t border-border-weak-base bg-background-base xl:border-l xl:rounded-tl-[12px]"><div class="relative bg-background-base size-full overflow-hidden flex flex-col"><div class="flex-1 min-h-0 flex flex-col md:flex-row"><div class="@container relative shrink-0 flex flex-col min-h-0 h-full bg-background-stronger flex-1 md:flex-none transition-[width] duration-[240ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-[width] motion-reduce:transition-none" style="width: 600px;"><div class="flex-1 min-h-0 overflow-hidden"><div class="relative w-full h-full min-w-0"><div class="absolute left-1/2 -translate-x-1/2 bottom-6 z-[60] transition-all duration-200 ease-out opacity-0 translate-y-2 scale-95 pointer-events-none"><button class="pointer-events-auto flex items-center justify-center w-10 h-8 bg-transparent border-none cursor-pointer p-0 group"><div class="flex items-center justify-center w-8 h-6 rounded-[6px] border border-border-weaker-base bg-[color-mix(in_srgb,var(--surface-raised-stronger-non-alpha)_80%,transparent)] backdrop-blur-[0.75px] transition-colors group-hover:border-[var(--border-weak-base)] group-hover:[--icon-base:var(--icon-hover)]" style="box-shadow:0 51px 60px 0 rgba(0,0,0,0.10), 0 15px 18px 0 rgba(0,0,0,0.12), 0 6.386px 7.513px 0 rgba(0,0,0,0.12), 0 2.31px 2.717px 0 rgba(0,0,0,0.20)"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M15.2083 11.6667L10 16.875L4.79167 11.6667M10 16.25V3.125" stroke="currentColor" stroke-width="1.25" stroke-linecap="square"></path></svg></div></div></button></div><div class="scroll-view relative min-w-0 w-full h-full" style="--session-title-height: 40px; --sticky-accordion-top: 48px;"><div class="scroll-view__viewport" tabindex="0" role="region" aria-label="scrollable content" style="overflow-anchor: auto;"><div class="min-w-0 w-full"><div data-session-title="" class="sticky top-0 z-30 bg-[linear-gradient(to_bottom,var(--background-stronger)_48px,transparent)] relative w-full pb-4 pl-2 pr-3 md:pl-4 md:pr-3"><div data-component="session-progress" aria-hidden="true" data-state="hiding" style="--session-progress-color: var(--icon-agent-build-base); --session-progress-ms: 1333ms;"><div data-component="session-progress-bar"></div></div><div class="h-12 w-full flex items-center justify-between gap-2"><div class="flex items-center gap-1 min-w-0 flex-1 pr-3"><div class="flex items-center min-w-0 grow-1"><div class="shrink-0 flex items-center justify-center overflow-hidden transition-[width,margin] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]" aria-hidden="true" style="width: 0px; margin-right: 0px;"><div class="transition-opacity duration-200 ease-out opacity-0"><svg class="size-4" viewBox="0 0 15 15" data-component="spinner" fill="currentColor" style="color: var(--icon-agent-build-base);"><rect width="3" height="3" rx="1" x="0" y="0" style="opacity: 0;"></rect><rect width="3" height="3" rx="1" x="4" y="0" style="animation: 1.58412s ease-in-out 0.441186s infinite normal both running pulse-opacity-dim;"></rect><rect width="3" height="3" rx="1" x="8" y="0" style="animation: 1.76007s ease-in-out 0.0541748s infinite normal both running pulse-opacity-dim;"></rect><rect width="3" height="3" rx="1" x="12" y="0" style="opacity: 0;"></rect><rect width="3" height="3" rx="1" x="0" y="4" style="animation: 1.12833s ease-in-out 1.14942s infinite normal both running pulse-opacity-dim;"></rect><rect width="3" height="3" rx="1" x="4" y="4" style="animation: 1.79582s ease-in-out 0.822738s infinite normal both running pulse-opacity;"></rect><rect width="3" height="3" rx="1" x="8" y="4" style="animation: 1.82583s ease-in-out 0.0136773s infinite normal both running pulse-opacity;"></rect><rect width="3" height="3" rx="1" x="12" y="4" style="animation: 1.87834s ease-in-out 1.36546s infinite normal both running pulse-opacity-dim;"></rect><rect width="3" height="3" rx="1" x="0" y="8" style="animation: 1.65451s ease-in-out 1.14861s infinite normal both running pulse-opacity-dim;"></rect><rect width="3" height="3" rx="1" x="4" y="8" style="animation: 1.02677s ease-in-out 0.609474s infinite normal both running pulse-opacity;"></rect><rect width="3" height="3" rx="1" x="8" y="8" style="animation: 1.18945s ease-in-out 0.858427s infinite normal both running pulse-opacity;"></rect><rect width="3" height="3" rx="1" x="12" y="8" style="animation: 1.45128s ease-in-out 1.16969s infinite normal both running pulse-opacity-dim;"></rect><rect width="3" height="3" rx="1" x="0" y="12" style="opacity: 0;"></rect><rect width="3" height="3" rx="1" x="4" y="12" style="animation: 1.93468s ease-in-out 0.664467s infinite normal both running pulse-opacity-dim;"></rect><rect width="3" height="3" rx="1" x="8" y="12" style="animation: 1.91246s ease-in-out 0.303356s infinite normal both running pulse-opacity-dim;"></rect><rect width="3" height="3" rx="1" x="12" y="12" style="opacity: 0;"></rect></svg></div></div><h1 data-slot="session-title-child" class="text-14-medium text-text-strong truncate grow-1 min-w-0">SQL query fundamentals: ops, where vs having, joins, unions, subqueries, CTEs</h1></div></div><div class="shrink-0 flex items-center gap-3"><div data-closed="" data-component="tooltip-trigger"><button type="button" aria-label="View context usage" data-component="button" data-size="normal" data-variant="ghost" class="size-6"><div class="flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" data-component="progress-circle"><circle cx="8" cy="8" data-slot="progress-circle-background" r="7" stroke-width="2"></circle><circle cx="8" cy="8" data-slot="progress-circle-progress" r="7" stroke-width="2" stroke-dasharray="43.982297150257104" stroke-dashoffset="36.50530663471339"></circle></svg></div></button></div><button type="button" id="dropdownmenu-cl-89-trigger" aria-haspopup="true" aria-expanded="false" data-closed="" icon="dot-grid" aria-label="More options" data-slot="dropdown-menu-trigger" data-component="icon-button" data-icon="dot-grid" data-size="normal" data-variant="ghost" class="size-6 rounded-md data-[expanded]:bg-surface-base-active"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M2.08398 9.16602H3.75065V10.8327H2.08398V9.16602Z" fill="currentColor"></path><path d="M10.834 9.16602H9.16732V10.8327H10.834V9.16602Z" fill="currentColor"></path><path d="M16.2507 9.16602H17.9173V10.8327H16.2507V9.16602Z" fill="currentColor"></path><path d="M2.08398 9.16602H3.75065V10.8327H2.08398V9.16602Z" stroke="currentColor"></path><path d="M10.834 9.16602H9.16732V10.8327H10.834V9.16602Z" stroke="currentColor"></path><path d="M16.2507 9.16602H17.9173V10.8327H16.2507V9.16602Z" stroke="currentColor"></path></svg></div></button></div></div></div><div role="log" data-slot="session-turn-list" class="flex flex-col items-start justify-start pb-16 transition-[margin] w-full mt-0"><div data-message-id="msg_db1907957001pMPtaoy8tp1RdV" id="message-msg_db1907957001pMPtaoy8tp1RdV" class="min-w-0 w-full max-w-full" style="content-visibility: auto; contain-intrinsic-size: auto 500px;"><div data-component="session-turn" class="min-w-0 w-full relative"><div data-slot="session-turn-content" class="flex flex-col justify-between !overflow-visible" style="overflow-anchor: none;"><div><div data-slot="session-turn-message-container" data-message="msg_db1907957001pMPtaoy8tp1RdV" class="w-full px-4 md:px-5"><div data-slot="session-turn-message-content" aria-live="off"><div data-component="user-message"><div data-slot="user-message-body"><div data-slot="user-message-text"><span>Order of operations. SELECT FROM WHERE GROUP BY … obviously, you need to know this to be able to write any query.
+
+WHERE versus HAVING. How do you filter your data? How are these functions different? Which should you use when? Where do they come in the order of operations?
+
+Aggregations and GROUP BY. How do you sum or average your data?
+
+JOIN. How do you join data from different (or the same) tables? What’s the difference between left, right, inner, outer, etc? What’s a UNION?
+
+Subqueries. How do they work? When would you use them?
+
+CTEs. How do they work? When would you use them? How would you query them? How do you create multiple CTEs in one query?/In addition to knowing how to write the logical conditions inside WHERE when you are searching for something specific/Build me a comprehensive website that includes these points, and that is dynamic and available in both Arabic and English.</span></div></div><div data-slot="user-message-copy-wrapper"><span data-slot="user-message-meta-wrap"><span data-slot="user-message-meta" class="text-12-regular text-text-weak cursor-default">Build&nbsp;·&nbsp;Big Pickle</span><span data-slot="user-message-meta-sep" class="text-12-regular text-text-weak cursor-default">&nbsp;·&nbsp;</span><span data-slot="user-message-meta-tail" class="text-12-regular text-text-weak cursor-default">10:42 PM</span></span><div data-closed="" data-component="tooltip-trigger"><button type="button" icon="reset" aria-label="Revert message" data-component="icon-button" data-icon="reset" data-size="normal" data-variant="ghost"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M5.83333 4.16406L2.5 7.4974L5.83333 10.8307M3.33333 7.4974H17.9167V15.4141H10" stroke="currentColor" stroke-linecap="square"></path></svg></div></button></div><div data-closed="" data-component="tooltip-trigger"><button type="button" icon="copy" aria-label="Copy message" data-component="icon-button" data-icon="copy" data-size="normal" data-variant="ghost"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M6.2513 6.24935V2.91602H17.0846V13.7493H13.7513M13.7513 6.24935V17.0827H2.91797V6.24935H13.7513Z" stroke="currentColor" stroke-linecap="round"></path></svg></div></button></div></div></div></div><div data-slot="session-turn-assistant-content" aria-hidden="false"><div data-component="text-part"><div data-slot="text-part-body"><div data-component="markdown"><p>I'll build a comprehensive bilingual SQL educational website. Let me start by creating the spec.</p>
+</div></div></div><div data-component="tool-part-wrapper"><div data-component="write-tool"><div id="collapsible-cl-99" data-component="collapsible" data-variant="normal" class="tool-collapsible" data-closed=""><button type="button" aria-expanded="false" data-slot="collapsible-trigger" data-closed=""><div data-component="tool-trigger"><div data-slot="basic-tool-tool-trigger-content"><div data-slot="basic-tool-tool-info"><div data-component="write-trigger"><div data-slot="message-part-title-area"><div data-slot="message-part-title"><span data-slot="message-part-title-text"><span data-component="text-shimmer" data-active="false" aria-label="Write" style="--text-shimmer-swap: 220ms; --text-shimmer-index: 0;"><span data-slot="text-shimmer-char"><span data-slot="text-shimmer-char-base" aria-hidden="true">Write</span><span data-slot="text-shimmer-char-shimmer" aria-hidden="true" data-run="false">Write</span></span></span></span><span data-slot="message-part-title-filename">SPEC.md</span></div></div><div data-slot="message-part-actions"></div></div></div></div><div data-slot="collapsible-arrow"><span data-slot="collapsible-arrow-icon"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M6.6665 8.33325L9.99984 11.6666L13.3332 8.33325" stroke="currentColor" stroke-linecap="square"></path></svg></div></span></div></div></button></div></div></div><div data-component="text-part"><div data-slot="text-part-body"><div data-component="markdown"><p>Now I'll build the website:</p>
+</div></div></div><div data-component="tool-part-wrapper"><div data-component="write-tool"><div data-closed="" id="collapsible-cl-112" data-component="collapsible" data-variant="normal" class="tool-collapsible"><button type="button" aria-expanded="false" data-closed="" data-slot="collapsible-trigger"><div data-component="tool-trigger"><div data-slot="basic-tool-tool-trigger-content"><div data-slot="basic-tool-tool-info"><div data-component="write-trigger"><div data-slot="message-part-title-area"><div data-slot="message-part-title"><span data-slot="message-part-title-text"><span data-component="text-shimmer" data-active="false" aria-label="Write" style="--text-shimmer-swap: 220ms; --text-shimmer-index: 0;"><span data-slot="text-shimmer-char"><span data-slot="text-shimmer-char-base" aria-hidden="true">Write</span><span data-slot="text-shimmer-char-shimmer" aria-hidden="true" data-run="false">Write</span></span></span></span><span data-slot="message-part-title-filename">sql-mastery.html</span></div></div><div data-slot="message-part-actions"></div></div></div></div><div data-slot="collapsible-arrow"><span data-slot="collapsible-arrow-icon"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M6.6665 8.33325L9.99984 11.6666L13.3332 8.33325" stroke="currentColor" stroke-linecap="square"></path></svg></div></span></div></div></button></div></div></div><div data-component="tool-part-wrapper"><div data-closed="" id="collapsible-cl-125" data-component="collapsible" data-variant="normal" class="tool-collapsible"><button type="button" aria-expanded="false" data-closed="" data-slot="collapsible-trigger"><div data-component="tool-trigger"><div data-slot="basic-tool-tool-trigger-content"><div data-slot="basic-tool-tool-info"><div data-slot="basic-tool-tool-info-structured"><div data-slot="basic-tool-tool-info-main"><span data-slot="basic-tool-tool-title"><span data-component="text-shimmer" data-active="false" aria-label="Shell" style="--text-shimmer-swap: 220ms; --text-shimmer-index: 0;"><span data-slot="text-shimmer-char"><span data-slot="text-shimmer-char-base" aria-hidden="true">Shell</span><span data-slot="text-shimmer-char-shimmer" aria-hidden="true" data-run="false">Shell</span></span></span></span><span data-component="shell-submessage"><span data-slot="shell-submessage-width" style="width: auto;"><span data-slot="basic-tool-tool-subtitle"><span data-slot="shell-submessage-value" style="opacity: 1; filter: blur(0px);">Verify HTML file exists</span></span></span></span></div></div></div></div><div data-slot="collapsible-arrow"><span data-slot="collapsible-arrow-icon"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M6.6665 8.33325L9.99984 11.6666L13.3332 8.33325" stroke="currentColor" stroke-linecap="square"></path></svg></div></span></div></div></button></div></div><div data-component="tool-part-wrapper"><div data-closed="" id="collapsible-cl-130" data-component="collapsible" data-variant="normal" class="tool-collapsible"><button type="button" aria-expanded="false" data-closed="" data-slot="collapsible-trigger"><div data-component="tool-trigger"><div data-slot="basic-tool-tool-trigger-content"><div data-slot="basic-tool-tool-info"><div data-slot="basic-tool-tool-info-structured"><div data-slot="basic-tool-tool-info-main"><span data-slot="basic-tool-tool-title"><span data-component="text-shimmer" data-active="false" aria-label="Shell" style="--text-shimmer-swap: 220ms; --text-shimmer-index: 0;"><span data-slot="text-shimmer-char"><span data-slot="text-shimmer-char-base" aria-hidden="true">Shell</span><span data-slot="text-shimmer-char-shimmer" aria-hidden="true" data-run="false">Shell</span></span></span></span><span data-component="shell-submessage"><span data-slot="shell-submessage-width" style="width: auto;"><span data-slot="basic-tool-tool-subtitle"><span data-slot="shell-submessage-value" style="opacity: 1; filter: blur(0px);">Verify HTML file exists</span></span></span></span></div></div></div></div><div data-slot="collapsible-arrow"><span data-slot="collapsible-arrow-icon"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M6.6665 8.33325L9.99984 11.6666L13.3332 8.33325" stroke="currentColor" stroke-linecap="square"></path></svg></div></span></div></div></button></div></div><div data-component="text-part"><div data-slot="text-part-body"><div data-component="markdown"><p>Done! I've created a comprehensive bilingual SQL educational website at <code>C:\Users\Public\sql-mastery.html</code>.</p>
+<p><strong>Features included:</strong></p>
+<ul>
+<li><strong>Order of Operations</strong> - Visual flow diagram showing SQL execution order (FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT)</li>
+<li><strong>WHERE vs HAVING</strong> - Detailed comparison with side-by-side table, code examples showing when to use each</li>
+<li><strong>Aggregations &amp; GROUP BY</strong> - Complete coverage of COUNT, SUM, AVG, MIN, MAX with examples</li>
+<li><strong>JOIN Types</strong> - Visual Venn diagrams for INNER, LEFT, RIGHT, FULL OUTER, and CROSS JOINs</li>
+<li><strong>UNION</strong> - UNION vs UNION ALL comparison with examples</li>
+<li><strong>Subqueries</strong> - WHERE, FROM, and SELECT clause subqueries with correlated vs non-correlated explanation</li>
+<li><strong>CTEs</strong> - Multiple CTEs in one query, CTEs vs subqueries comparison</li>
+</ul>
+<p><strong>Bilingual Support:</strong></p>
+<ul>
+<li>Full Arabic translation (املائيات عربية)</li>
+<li>RTL layout for Arabic</li>
+<li>Language toggle persists preference to localStorage</li>
+<li>All code blocks remain LTR regardless of language</li>
+</ul>
+<p><strong>Interactive Features:</strong></p>
+<ul>
+<li>Syntax-highlighted code blocks with copy functionality</li>
+<li>Smooth scroll animations on section visibility</li>
+<li>Hover effects on cards</li>
+<li>Responsive design for mobile/desktop</li>
+</ul>
+<p>Open <code>sql-mastery.html</code> in any browser to view.</p>
+</div></div><div data-slot="text-part-copy-wrapper"><div data-closed="" data-component="tooltip-trigger"><button type="button" icon="copy" aria-label="Copy response" data-component="icon-button" data-icon="copy" data-size="normal" data-variant="ghost"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M6.2513 6.24935V2.91602H17.0846V13.7493H13.7513M13.7513 6.24935V17.0827H2.91797V6.24935H13.7513Z" stroke="currentColor" stroke-linecap="round"></path></svg></div></button></div><span data-slot="text-part-meta" class="text-12-regular text-text-weak cursor-default">Build · Big Pickle · 6m 46s</span></div></div></div></div></div></div></div></div><div data-message-id="msg_db198fe21001TFEKiFuZovFqHE" id="message-msg_db198fe21001TFEKiFuZovFqHE" class="min-w-0 w-full max-w-full" style="content-visibility: auto; contain-intrinsic-size: auto 500px;"><div data-component="session-turn" class="min-w-0 w-full relative"><div data-slot="session-turn-content" class="flex flex-col justify-between !overflow-visible" style="overflow-anchor: none;"><div><div data-slot="session-turn-message-container" data-message="msg_db198fe21001TFEKiFuZovFqHE" class="w-full px-4 md:px-5"><div data-slot="session-turn-message-content" aria-live="off"><div data-component="user-message"><div data-slot="user-message-body"><div data-slot="user-message-text"><span>شلون افتح الموقع ؟ </span></div></div><div data-slot="user-message-copy-wrapper"><span data-slot="user-message-meta-wrap"><span data-slot="user-message-meta" class="text-12-regular text-text-weak cursor-default">Build&nbsp;·&nbsp;Big Pickle</span><span data-slot="user-message-meta-sep" class="text-12-regular text-text-weak cursor-default">&nbsp;·&nbsp;</span><span data-slot="user-message-meta-tail" class="text-12-regular text-text-weak cursor-default">10:51 PM</span></span><div data-closed="" data-component="tooltip-trigger"><button type="button" icon="reset" aria-label="Revert message" data-component="icon-button" data-icon="reset" data-size="normal" data-variant="ghost"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M5.83333 4.16406L2.5 7.4974L5.83333 10.8307M3.33333 7.4974H17.9167V15.4141H10" stroke="currentColor" stroke-linecap="square"></path></svg></div></button></div><div data-closed="" data-component="tooltip-trigger"><button type="button" icon="copy" aria-label="Copy message" data-component="icon-button" data-icon="copy" data-size="normal" data-variant="ghost"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M6.2513 6.24935V2.91602H17.0846V13.7493H13.7513M13.7513 6.24935V17.0827H2.91797V6.24935H13.7513Z" stroke="currentColor" stroke-linecap="round"></path></svg></div></button></div></div></div></div><div data-slot="session-turn-assistant-content" aria-hidden="false"><div data-component="text-part"><div data-slot="text-part-body"><div data-component="markdown"><p>افتح الملف في المتصفح:</p>
+<div data-component="markdown-code"><pre class="shiki OpenCode" style="background-color:var(--color-background-stronger);color:var(--text-base)"><code><span class="line"><span>C:\Users\Public\sql-mastery.html</span></span></code></pre><button type="button" data-component="icon-button" data-variant="secondary" data-size="small" data-slot="markdown-copy-button" aria-label="Copy" data-tooltip="Copy"><div data-component="icon" data-size="small" data-slot="copy-icon"><svg data-slot="icon-svg" fill="none" viewBox="0 0 20 20" aria-hidden="true"><path d="M6.2513 6.24935V2.91602H17.0846V13.7493H13.7513M13.7513 6.24935V17.0827H2.91797V6.24935H13.7513Z" stroke="currentColor" stroke-linecap="round"></path></svg></div><div data-component="icon" data-size="small" data-slot="check-icon"><svg data-slot="icon-svg" fill="none" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 11.9657L8.37838 14.7529L15 5.83398" stroke="currentColor" stroke-linecap="square"></path></svg></div></button></div>
+<p><strong>في ويندوز:</strong></p>
+<ul>
+<li>اضغط derecho على الملف</li>
+<li>اختر "Open with" &gt; اختر متصفح (Chrome, Edge, etc)</li>
+</ul>
+<p><strong>أو اسحب الملف مباشرة إلى المتصفح</strong></p>
+</div></div><div data-slot="text-part-copy-wrapper"><div data-closed="" data-component="tooltip-trigger"><button type="button" icon="copy" aria-label="Copy response" data-component="icon-button" data-icon="copy" data-size="normal" data-variant="ghost"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M6.2513 6.24935V2.91602H17.0846V13.7493H13.7513M13.7513 6.24935V17.0827H2.91797V6.24935H13.7513Z" stroke="currentColor" stroke-linecap="round"></path></svg></div></button></div><span data-slot="text-part-meta" class="text-12-regular text-text-weak cursor-default">Build · Big Pickle · 10s</span></div></div></div></div></div></div></div></div></div></div></div><div class="scroll-view__thumb" style="z-index: 100; height: 180.949px; transform: translateY(439.051px);" data-visible="false" data-dragging="false"></div></div></div></div><div data-component="session-prompt-dock" class="shrink-0 w-full pb-3 flex flex-col justify-center items-center bg-background-stronger pointer-events-none"><div class="w-full px-3 pointer-events-auto"><div class="relative z-10" style="margin-top: 0px;"><div class="relative size-full _max-h-[320px] flex flex-col gap-0"><form data-dock-surface="shell" class="group/prompt-input focus-within:shadow-xs-border"><div class="relative"><div class="relative max-h-[240px] overflow-y-auto no-scrollbar" style="scroll-padding-bottom:56px"><div data-component="prompt-input" role="textbox" aria-multiline="true" contenteditable="true" inputmode="text" autocomplete="off" style="padding-bottom:56px" aria-label="Ask anything..." autocapitalize="sentences" autocorrect="on" spellcheck="true" class="select-text w-full pl-3 pr-2 pt-2 text-14-regular text-text-strong focus:outline-none whitespace-pre-wrap [&amp;_[data-type=file]]:text-syntax-property [&amp;_[data-type=agent]]:text-syntax-type"></div><div class="absolute top-0 inset-x-0 pl-3 pr-2 pt-2 text-14-regular text-text-weak pointer-events-none whitespace-nowrap truncate" style="padding-bottom: 56px;">Ask anything...</div></div><div aria-hidden="true" class="pointer-events-none absolute inset-x-0 bottom-0" style="height:56px;background:linear-gradient(to top, var(--surface-raised-stronger-non-alpha) calc(100% - 20px), transparent)"></div><div class="pointer-events-none absolute bottom-2 right-2 flex items-center gap-2"><input type="file" multiple="" class="hidden" accept="image/png,image/jpeg,image/gif,image/webp,application/pdf,text/*,application/json,application/ld+json,application/toml,application/x-toml,application/x-yaml,application/xml,application/yaml,.c,.cc,.cjs,.conf,.cpp,.css,.csv,.cts,.env,.go,.gql,.graphql,.h,.hh,.hpp,.htm,.html,.ini,.java,.js,.json,.jsx,.log,.md,.mdx,.mjs,.mts,.py,.rb,.rs,.sass,.scss,.sh,.sql,.toml,.ts,.tsx,.txt,.xml,.yaml,.yml,.zsh"><div class="flex items-center gap-1 pointer-events-auto"><button type="submit" disabled="" data-disabled="" data-action="prompt-submit" icon="arrow-up" aria-label="Send" data-component="icon-button" data-icon="arrow-up" data-size="normal" data-variant="primary" class="size-8" style="opacity: 1; transform: scale(1); filter: blur(0px); pointer-events: auto;"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.99991 2.24121L16.0921 8.33343L15.2083 9.21731L10.6249 4.63397V17.5001H9.37492V4.63398L4.7916 9.21731L3.90771 8.33343L9.99991 2.24121Z" fill="currentColor"></path></svg></div></button></div></div><div class="pointer-events-none absolute bottom-2 left-2"><div class="pointer-events-auto" aria-hidden="false" style="pointer-events: auto;"><div data-closed="" data-component="tooltip-trigger"><button type="button" data-action="prompt-attach" aria-label="Add files" data-component="button" data-size="normal" data-variant="ghost" class="size-8 p-0" style="opacity: 1; transform: scale(1); filter: blur(0px); pointer-events: auto;"><div data-component="icon" data-size="normal"><svg data-slot="icon-svg" fill="none" aria-hidden="true" class="size-4.5" viewBox="0 0 20 20"><path d="M9.9987 2.20703V9.9987M9.9987 9.9987V17.7904M9.9987 9.9987H2.20703M9.9987 9.9987H17.7904" stroke="currentColor" stroke-linecap="square"></path></svg></div></button></div></div></div></div></form><div data-dock-surface="tray" data-dock-attach="top"><div class="px-1.75 pt-5.5 pb-2 flex items-center gap-2 min-w-0"><div class="flex items-center gap-1.5 min-w-0 flex-1 relative"><div class="h-7 flex items-center gap-1.5 max-w-[160px] min-w-0 absolute inset-y-0 left-0" style="padding: 0px 4px 0px 8px; opacity: 0; transform: scale(0.95); filter: blur(2px); pointer-events: none;"><span class="truncate text-13-medium text-text-strong">Shell</span><div class="size-4 shrink-0"></div></div><div class="flex items-center gap-1.5 min-w-0 flex-1 h-7"><div data-component="prompt-agent-control" style="animation:fade-in 0.3s"><div data-component="tooltip-trigger" data-closed=""><div role="group" id="select-cl-81" data-closed="" size="normal" variant="ghost" data-component="select"><button type="button" id="select-cl-81-trigger" aria-haspopup="listbox" aria-expanded="false" data-closed="" data-action="prompt-agent" data-slot="select-select-trigger" data-component="button" data-size="normal" data-variant="ghost" class="capitalize max-w-[160px] text-text-base" aria-labelledby="select-cl-81-value" style="height: 28px; opacity: 1; transform: scale(1); filter: blur(0px); pointer-events: auto;"><span id="select-cl-81-value" data-slot="select-select-trigger-value" class="truncate text-13-regular text-text-base">build</span><span aria-hidden="true" data-closed="" data-slot="select-select-trigger-icon"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M6.6665 8.33325L9.99984 11.6666L13.3332 8.33325" stroke="currentColor" stroke-linecap="square"></path></svg></div></span></button></div></div></div><div data-component="prompt-model-control" style="animation:fade-in 0.3s"><div data-component="tooltip-trigger" data-closed=""><div data-action="prompt-model" data-component="button" data-size="normal" data-variant="ghost" class="min-w-0 max-w-[320px] text-13-regular text-text-base group" role="button" tabindex="0" style="height: 28px; opacity: 1; transform: scale(1); filter: blur(0px); pointer-events: auto;"><svg data-component="provider-icon" class="size-4 shrink-0 opacity-40 group-hover:opacity-100 transition-opacity duration-150" style="will-change: opacity; transform: translateZ(0px);"><use href="/assets/sprite-BYed8wgv.svg#opencode"></use></svg><span class="truncate">Big Pickle</span><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" class="shrink-0" viewBox="0 0 20 20"><path d="M6.6665 8.33325L9.99984 11.6666L13.3332 8.33325" stroke="currentColor" stroke-linecap="square"></path></svg></div></div></div></div><div data-component="prompt-variant-control" style="animation:fade-in 0.3s"><div data-closed="" data-component="tooltip-trigger"><div role="group" id="select-cl-85" data-closed="" size="normal" variant="ghost" data-component="select"><button type="button" id="select-cl-85-trigger" aria-haspopup="listbox" aria-expanded="false" data-closed="" data-action="prompt-model-variant" data-slot="select-select-trigger" data-component="button" data-size="normal" data-variant="ghost" class="capitalize max-w-[160px] text-text-base" aria-labelledby="select-cl-85-value" style="height: 28px; opacity: 1; transform: scale(1); filter: blur(0px); pointer-events: auto;"><span id="select-cl-85-value" data-slot="select-select-trigger-value" class="truncate text-13-regular text-text-base">Default</span><span aria-hidden="true" data-closed="" data-slot="select-select-trigger-icon"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M6.6665 8.33325L9.99984 11.6666L13.3332 8.33325" stroke="currentColor" stroke-linecap="square"></path></svg></div></span></button></div></div></div></div></div></div></div></div></div></div></div><div><div data-component="resize-handle" data-direction="horizontal" data-edge="end"></div></div></div><aside id="review-panel" class="relative min-w-0 h-full flex shrink-0 overflow-hidden bg-background-base transition-[width] duration-[240ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-[width] motion-reduce:transition-none" aria-label="Review and files" aria-hidden="false" style="width: calc(100% - 600px);"><div class="size-full flex border-l border-border-weaker-base"><div class="relative min-w-0 h-full flex-1 overflow-hidden bg-background-base" aria-hidden="false"><div class="size-full min-w-0 h-full bg-background-base"><div id="tabs-cl-58" data-component="tabs" data-variant="normal" data-orientation="horizontal"><div class="sticky top-0 shrink-0 flex"><div role="tablist" aria-orientation="horizontal" data-orientation="horizontal" data-slot="tabs-list"><div data-slot="tabs-trigger-wrapper" data-value="review"><button id="tabs-cl-58-trigger-review" role="tab" aria-selected="true" data-key="review" data-orientation="horizontal" data-selected="" type="button" data-slot="tabs-trigger" data-value="review" tabindex="0" aria-controls="tabs-cl-58-content-review" data-highlighted=""><div class="flex items-center gap-1.5"><div>Review</div></div></button></div><div class="bg-background-stronger h-full shrink-0 sticky right-0 z-10 flex items-center justify-center pr-3"><div data-closed="" data-component="tooltip-trigger" class="flex items-center"><button type="button" icon="plus-small" aria-label="Open file" data-component="icon-button" data-icon="plus-small" data-size="normal" data-variant="ghost" class="!rounded-md"><div data-component="icon" data-size="large"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M9.99984 5.41699V10.0003M9.99984 10.0003V14.5837M9.99984 10.0003H5.4165M9.99984 10.0003H14.5832" stroke="currentColor" stroke-linecap="square"></path></svg></div></button></div></div></div></div><div id="tabs-cl-58-content-review" role="tabpanel" data-orientation="horizontal" data-selected="" data-slot="tabs-content" class="flex flex-col h-full overflow-hidden contain-strict" aria-labelledby="tabs-cl-58-trigger-review"><div class="flex flex-col h-full overflow-hidden bg-background-stronger contain-strict"><div class="relative pt-2 flex-1 min-h-0 overflow-hidden"><div data-component="session-review"><div data-slot="session-review-header" class="px-3"><div data-slot="session-review-title"><div role="group" id="select-cl-97" data-closed="" variant="ghost" size="small" data-component="select"><button type="button" id="select-cl-97-trigger" aria-haspopup="listbox" aria-expanded="false" data-closed="" data-slot="select-select-trigger" data-component="button" data-size="small" data-variant="ghost" aria-labelledby="select-cl-97-value"><span id="select-cl-97-value" data-slot="select-select-trigger-value" class="text-14-medium">Last turn changes</span><span aria-hidden="true" data-closed="" data-slot="select-select-trigger-icon"><div data-component="icon" data-size="small"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M6.6665 8.33325L9.99984 11.6666L13.3332 8.33325" stroke="currentColor" stroke-linecap="square"></path></svg></div></span></button></div></div><div data-slot="session-review-actions"></div></div><div class="scroll-view pr-3" data-slot="session-review-scroll"><div class="scroll-view__viewport" tabindex="0" role="region" aria-label="scrollable content"><div data-slot="session-review-container" class="pl-3"><div class="h-full pb-64 -mt-4 flex flex-col items-center justify-center text-center gap-6"><div class="flex flex-col gap-3"><div class="text-14-medium text-text-strong">Create a Git repository</div><div class="text-14-regular text-text-base max-w-md" style="line-height:var(--line-height-normal)">Track, review, and undo changes in this project</div></div><button type="button" data-component="button" data-size="large" data-variant="secondary">Create Git repository</button></div></div></div></div></div></div></div></div></div></div></div><div id="file-tree-panel" class="relative min-w-0 h-full shrink-0 overflow-hidden pointer-events-none transition-[width] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-[width] motion-reduce:transition-none" aria-hidden="true" inert="" style="width: 0px;"><div class="h-full flex flex-col overflow-hidden group/filetree border-l border-border-weaker-base"><div id="tabs-cl-60" data-scope="filetree" data-component="tabs" data-variant="pill" data-orientation="horizontal" class="h-full"><div role="tablist" aria-orientation="horizontal" data-orientation="horizontal" data-slot="tabs-list"><div data-slot="tabs-trigger-wrapper" data-value="changes" class="flex-1"><button id="tabs-cl-60-trigger-changes" role="tab" aria-selected="true" data-key="changes" data-orientation="horizontal" data-selected="" type="button" data-slot="tabs-trigger" data-value="changes" class="w-full" tabindex="0" aria-controls="tabs-cl-60-content-changes" data-highlighted="">0 Changes</button></div><div data-slot="tabs-trigger-wrapper" data-value="all" class="flex-1"><button id="tabs-cl-60-trigger-all" role="tab" aria-selected="false" data-key="all" data-orientation="horizontal" type="button" data-slot="tabs-trigger" data-value="all" class="w-full" tabindex="-1">All files</button></div></div><div id="tabs-cl-60-content-changes" role="tabpanel" tabindex="0" data-orientation="horizontal" data-selected="" data-slot="tabs-content" class="bg-background-stronger px-3 py-0"></div></div></div></div></div></aside></div><div id="terminal-panel" role="region" class="relative w-full shrink-0 overflow-hidden bg-background-stronger transition-[height] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-[height] motion-reduce:transition-none" aria-label="Terminal" aria-hidden="true" inert="" style="height: 0px;"><div class="absolute inset-x-0 top-0 flex flex-col pointer-events-none" style="height: 280px;"><div class="hidden md:block"><div data-component="resize-handle" data-direction="vertical" data-edge="start"></div></div><div class="flex flex-col h-full"><div id="tabs-cl-61" data-component="tabs" data-variant="alt" data-orientation="horizontal" class="!h-auto !flex-none"><div role="tablist" aria-orientation="horizontal" data-orientation="horizontal" data-slot="tabs-list" class="h-10 border-b border-border-weaker-base"><div class="h-full flex items-center justify-center"><div data-closed="" data-component="tooltip-trigger" class="flex items-center"><button type="button" icon="plus-small" aria-label="New terminal" data-component="icon-button" data-icon="plus-small" data-size="normal" data-variant="ghost"><div data-component="icon" data-size="large"><svg data-slot="icon-svg" fill="none" aria-hidden="true" viewBox="0 0 20 20"><path d="M9.99984 5.41699V10.0003M9.99984 10.0003V14.5837M9.99984 10.0003H5.4165M9.99984 10.0003H14.5832" stroke="currentColor" stroke-linecap="square"></path></svg></div></button></div></div></div></div><div class="flex-1 min-h-0 relative"></div></div></div></div></div></main></div><div class="hidden xl:flex absolute inset-y-0 left-16 z-30 opacity-0 -translate-x-2 pointer-events-none transition-[opacity,transform] motion-reduce:transition-none duration-120 ease-in"></div><div class="hidden xl:block pointer-events-none absolute inset-y-0 right-0 z-25 overflow-hidden opacity-0 -translate-x-2 transition-[opacity,transform] motion-reduce:transition-none duration-120 ease-in" style="left: calc(280px + 4rem);"><div class="h-full w-px" style="box-shadow:var(--shadow-sidebar-overlay)"></div></div></div></div></div></div><div data-component="dialog-stack"></div></div>
+    <div data-tauri-decorum-tb="" class="w-0 h-0 hidden">
+
+  
+
+<button id="decorum-tb-minimize" class="decorum-tb-btn"></button><button id="decorum-tb-maximize" class="decorum-tb-btn"></button><button id="decorum-tb-close" class="decorum-tb-btn"></button></div><div></div><div></div><div><div role="region" tabindex="-1" aria-label="Notifications (alt+T)" data-kb-top-layer="" id="toast-region-cl-7" data-component="toast-region" style="pointer-events: none;"><ol tabindex="-1" data-slot="toast-list"></ol></div></div><div></div><div></div></body></html>
